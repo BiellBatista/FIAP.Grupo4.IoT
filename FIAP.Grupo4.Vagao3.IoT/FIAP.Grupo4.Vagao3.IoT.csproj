@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.38.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\FIAP.Grupo4.Domain.IoT\FIAP.Grupo4.Domain.IoT.csproj" />
+	</ItemGroup>
+</Project>
