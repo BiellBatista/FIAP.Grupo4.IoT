@@ -15,6 +15,7 @@ namespace FIAP.Grupo4.Vagao1.IoT
 
         private static async Task SendDeviceToCloudMessagesAsync()
         {
+            var startTime = DateTime.Now;
             var peopleEntered = 0;
             var peopleLeft = 0;
             var peopleStayed = 0;
@@ -29,6 +30,7 @@ namespace FIAP.Grupo4.Vagao1.IoT
 
                 if (station == 0)
                 {
+                    ++station;
                     peopleStayed = peopleEntered;
                 }
                 else
@@ -45,12 +47,10 @@ namespace FIAP.Grupo4.Vagao1.IoT
 
                 await s_deviceClient.SendEventAsync(message).ConfigureAwait(false);
 
-                ++station;
-
                 Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
 
                 await Task.Delay(1000).ConfigureAwait(false);
-            } while (true);
+            } while (startTime < startTime.AddHours(19));
         }
 
         private static void Main()
